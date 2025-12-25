@@ -45,4 +45,27 @@ document.addEventListener('DOMContentLoaded', () => {
         rotateRole(); // Show first immediately
         setInterval(rotateRole, 2500); // Rotate every 2.5 seconds
     }
+    // Mobile Navigation
+    const menuBtn = document.querySelector('.menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    const navItems = document.querySelectorAll('.nav-links a');
+
+    if (menuBtn) {
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+
+            // Animate Hamburger
+            const bars = document.querySelectorAll('.bar');
+            // Basic rotation logic could go here, but simple toggle is fine for now
+        });
+    }
+
+    // Close menu when clicking a link
+    navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            if (navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+            }
+        });
+    });
 });
